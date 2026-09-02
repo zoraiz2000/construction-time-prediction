@@ -69,9 +69,9 @@ Larger and more complex homes likely need longer scheduling buffers. Floor plan 
 
 Raw averages on mature 2021–June 2024 completes rank A. Boucher first and W. Halvorsen 17th, which ignores project mix.
 
-A separate auxiliary CatBoost model used the same core features and early stopping but **dropped `site_manager`**. It is not the scoring model. For each January–June 2024 validation home, expected cycle time was compared with actual time (negative = faster than expected), with 2,000 within-manager bootstrap samples.
+A separate auxiliary CatBoost model used the same core features and early stopping but **dropped `site_manager`**. It is not the scoring model. That helper was trained on 2021–2023 and overestimated January–June 2024 cycle times by about **23 days** on average, so almost every manager looks “fast” versus the helper. Manager comparisons therefore use residuals **relative to the validation-wide average**, not the raw gap versus 2021–2023 expectations.
 
-W. Halvorsen (44 validation builds) was about **45.3 days faster than expected** (95% interval about 36.6 to 53.9 days faster) and ranked first in **52.6%** of bootstraps—moderate confidence. T. Beaulieu (25 builds) was about **44.1 days faster than expected**, with overlapping intervals. They form the leading group; the evidence does not support one definitive winner.
+W. Halvorsen (44 validation builds) was about **22 days faster than the typical mix-adjusted January–June 2024 home**, not 45 days faster than peers. Versus the helper the residual is −45.3 days because that figure still includes the 23-day cohort overestimate. T. Beaulieu (25 builds) is close, with overlapping intervals. They form the leading group (Halvorsen ranked first in 52.6% of bootstraps). The evidence does not support one definitive winner.
 
 This remains observational. Assignments are not random and may reflect crews, communities, workload, or project difficulty.
 
