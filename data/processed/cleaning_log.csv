@@ -1,0 +1,21 @@
+issue,n_found,n_expected,applied,action
+exact duplicate extras (history),25,25.0,True,drop_duplicates: 4684 -> 4659 rows; unique home_id=4659
+basement_type None (history),1654,1654.0,True,recode None -> 'No basement'
+basement_type None (predict),260,260.0,True,recode None -> 'No basement'
+garage_size words (history),259,259.0,True,map Single/Double/Triple -> 1/2/3
+garage_size words (predict),31,31.0,True,map Single/Double/Triple -> 1/2/3
+community labels (history),398,,True,strip+title: unique 70 -> 14
+community labels (predict),49,,True,strip+title: unique 45 -> 14
+sqft extra zero (history),13,13.0,True,divided 13 by 10; left unchanged none
+sqft extra zero (predict),3,3.0,True,divided 3 by 10; left unchanged none
+end date before start,7,7.0,True,"no date rewrite; exclude from training file: H100392,H103515,H103849,H103689,H101045,H101204,H101439"
+in-progress history,579,579.0,True,no end-date imputation; exclude 575 remaining in-progress rows from training file
+snapshot truncation,699,,False,documented cut 2025-07-31; 2025 completes with valid cycle_days kept
+beds missing (history),141,141.0,False,verified_leave_as_is | leave missing; do not global-mean impute
+beds missing (predict),17,17.0,False,verified_leave_as_is | leave missing
+lot_size_sqft missing (history),97,97.0,False,verified_leave_as_is | leave missing
+lot_size_sqft missing (predict),12,12.0,False,verified_leave_as_is | leave missing
+non-spec missing sale_date (history),504,504.0,False,verified_leave_as_is | leave missing; spec missingness is expected and separate
+non-spec missing sale_date (predict),62,62.0,False,verified_leave_as_is | leave missing
+spec missing sale_date (history),1081,1081.0,False,verified_leave_as_is | expected; leave as NA
+spec missing sale_date (predict),134,134.0,False,verified_leave_as_is | expected; leave as NA
